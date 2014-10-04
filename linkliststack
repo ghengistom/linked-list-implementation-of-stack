@@ -1,0 +1,56 @@
+#include<iostream>
+#include "node.h"
+
+using namespace std;
+
+
+template <class T>
+class stack_list
+{
+private: struct node
+		 {
+			 T info;
+			 node *next;
+		 };
+		 node *stack;					//create stack pointer
+public:stack_list()						//constructor
+	   {
+		   stack=NULL;					//set stack pointer to null
+	   }
+
+	   
+void push(T x)
+	{
+		node *p;						//create pointer of type node
+		p=new node;						//set "p"pointer to point to newly create node
+		p->info=x;						//access info block of the node
+		p->next=NULL;					//set "p"pointer to access "next" block of node which is set to NULL
+		if(stack==NULL)
+		{
+			stack = p;
+		}
+		else 
+		{
+			p->next=stack;
+			stack=p;
+		}
+	}
+bool Emptys()
+{
+	if(stack==NULL)
+		return true;
+	else 
+		return false;
+}
+
+T pops()
+{
+	node *p=stack;
+	T x;
+	x=stack->info;
+	stack=stack->next;
+	delete(p);
+	return x;
+}
+
+};
