@@ -1,0 +1,24 @@
+#include <iostream>
+#include "stackLi.h"
+
+using namespace std;
+
+
+
+int main()
+{
+	stackLi<int> S;
+	S.push(10);
+	S.push(30);
+
+	while (S.Emptys() != true)
+	{
+		int holdpop = S.pops();
+		cout << holdpop<<"->";
+	}
+
+
+
+	system("pause");
+	return 0;
+}
